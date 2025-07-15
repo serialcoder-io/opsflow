@@ -4,9 +4,9 @@ import { Outlet } from 'react-router'
 
 export default function Layout(): JSX.Element {
   return (
-    <div>
+    <div className="flex h-screen">
       <Sidebar />
-      <main>
+      <main className="flex-1 p-4 overflow-auto">
         <Outlet />
       </main>
     </div>
