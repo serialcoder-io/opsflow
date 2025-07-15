@@ -16,7 +16,7 @@ function App(): React.JSX.Element {
         Please try pressing <code>F12</code> to open the devTool
       </p>
       <div className="actions">
-        <div className="action">
+        <div className="btn btn-primary rounded-full">
           <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
             Documentation
           </a>
