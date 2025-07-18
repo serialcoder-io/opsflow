@@ -5,3 +5,10 @@ export type SideBarLinkProps = {
   text: string
   icon: React.JSX.Element
 }
+
+export type CheckboxProps = {
+  label: string
+  checked: boolean
+  value: string
+  onChange: (checked: boolean, value: string) => void
+}
