@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Container, Box, FolderCode } from 'lucide-react'
-import SideLink from '@renderer/ui/layout/side-link'
+import SideLink from '@renderer/ui/layout-elements/SideLink'
 
 export default function Sidebar(): JSX.Element {
   return (

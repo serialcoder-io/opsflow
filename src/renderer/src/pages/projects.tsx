@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import NewProjectForm from '@renderer/components/projects/new-project-form'
+import NewProjectForm from '@renderer/components/projects/newProjectForm'
 
 export default function Projects(): JSX.Element {
   return (

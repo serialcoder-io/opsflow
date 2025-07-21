@@ -1,4 +1,4 @@
-import Sidebar from '@renderer/components/layout/Sidebar'
+import Sidebar from '@renderer/components/layouts/Sidebar'
 import { JSX } from 'react'
 import { Outlet } from 'react-router'
 

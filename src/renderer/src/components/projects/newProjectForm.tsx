@@ -1,6 +1,6 @@
 import { Folder, FolderSearch, Package } from 'lucide-react'
 import { JSX } from 'react'
-import FilesSectionsForm from './files-section-form'
+import FilesSectionsForm from './filesSectionForm'
 
 export default function NewProjectForm(): JSX.Element {
   return (
