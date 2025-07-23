@@ -1,7 +1,7 @@
 import { JSX, useState } from 'react'
 import Checkbox from '@renderer/ui/common/checkbox'
 
-export default function FilesSectionsForm(): JSX.Element {
+export default function FilesSections(): JSX.Element {
   const [selections, setSelections] = useState({
     dockerfile: true,
     compose: false,
@@ -34,6 +34,9 @@ export default function FilesSectionsForm(): JSX.Element {
             onChange={onCheck}
           />
           <Checkbox label=".env" value="env" checked={selections.env} onChange={onCheck} />
+        </div>
+        <div className="py-3">
+          <button className="btn btn-primary">Generate</button>
         </div>
       </div>
     </div>

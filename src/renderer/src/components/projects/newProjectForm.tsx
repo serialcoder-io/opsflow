@@ -1,8 +1,26 @@
 import { Folder, FolderSearch, Package } from 'lucide-react'
-import { JSX } from 'react'
-import FilesSectionsForm from './filesSectionForm'
+import { JSX, useState } from 'react'
+import FilesSection from './filesSection'
+import Checkbox from '@renderer/ui/common/checkbox'
 
 export default function NewProjectForm(): JSX.Element {
+  const [selections, setSelections] = useState({
+    redis: false,
+    celery: false,
+    rabbitmq: false,
+    nginx_reverse_proxy: false,
+    nginx_web_server: false
+  })
+
+  const handleCheckboxChange = (name: string, checked: boolean): void => {
+    setSelections((prev) => ({ ...prev, [name]: checked }))
+  }
+
+  const onCheck = (checked: boolean, value: string): void => {
+    handleCheckboxChange(value, checked)
+    console.log(`${checked ? 'Add' : 'Remove'} ${value} file`)
+  }
+
   return (
     <form className="p-4">
       {/** folder and language selection */}
@@ -95,32 +113,37 @@ export default function NewProjectForm(): JSX.Element {
         <div className="">
           <p className="p-2 text-sm opacity-80">Services</p>
           <div className="w-full p-4 border rounded-lg flex flex-wrap gap-x-6 gap-y-3">
-            <label className="label">
-              <input type="checkbox" className="checkbox checkbox-sm" />
-              Redis
-            </label>
-            <label className="label">
-              <input type="checkbox" className="checkbox checkbox-sm" />
-              Celery
-            </label>
-            <label className="label">
-              <input type="checkbox" className="checkbox checkbox-sm" />
-              RabbitMQ
-            </label>
-            <label className="label">
-              <input type="checkbox" className="checkbox checkbox-sm" />
-              Nginx (as Reverse Proxy)
-            </label>
-            <label className="label">
-              <input type="checkbox" className="checkbox checkbox-sm" />
-              Nginx (as Web Server for static files)
-            </label>
+            <Checkbox label="Redis" value="redis" checked={selections.redis} onChange={onCheck} />
+            <Checkbox
+              label="Celery"
+              value="celery"
+              checked={selections.celery}
+              onChange={onCheck}
+            />
+            <Checkbox
+              label="RabbitMQ"
+              value="rabbitmq"
+              checked={selections.rabbitmq}
+              onChange={onCheck}
+            />
+            <Checkbox
+              label="Nginx (as reverse proxy)"
+              value="nginx_reverse_proxy"
+              checked={selections.nginx_reverse_proxy}
+              onChange={onCheck}
+            />
+            <Checkbox
+              label="Nginx (as web server)"
+              value="nginx_web_server"
+              checked={selections.nginx_web_server}
+              onChange={onCheck}
+            />
           </div>
         </div>
       </div>
 
       {/** File to generate */}
-      <FilesSectionsForm />
+      <FilesSection />
     </form>
   )
 }
